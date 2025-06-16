@@ -7,7 +7,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
 
-  / Фоновый градиент с текстурой шинного протектора /
+  / Фон с градиентом и легкой текстурой /
   body, html {
     margin: 0; padding: 0; height: 100%;
     background: linear-gradient(135deg, #0d47a1 0%, #1976d2 70%);
@@ -21,11 +21,11 @@
     position: relative;
   }
 
-  / Наложение текстуры протектора (через CSS-паттерн) /
+  / Текстурная наложение /
   body::before {
     content: '';
     position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
     background-image:
       radial-gradient(circle at 10px 10px, rgba(255, 255, 255, 0.05) 2px, transparent 3px),
       radial-gradient(circle at 20px 20px, rgba(255, 255, 255, 0.05) 2px, transparent 3px);
@@ -48,7 +48,6 @@
     opacity: 0;
   }
 
-  / Логотип /
   .logo {
     margin: 0 auto 25px auto;
     width: 160px;
@@ -56,14 +55,13 @@
     cursor: default;
   }
 
-  / Анимация линии логотипа /
   .logo path {
+    fill: none;
     stroke-dasharray: 400;
     stroke-dashoffset: 400;
     animation: drawLine 2s ease forwards;
     stroke: #fff;
     stroke-width: 5;
-    fill: none;
     stroke-linecap: round;
     stroke-linejoin: round;
   }
@@ -181,12 +179,11 @@
     </svg>
 
     <h1>ООО "АльфаТек"</h1>
-
-<p class="description">
+    <p class="description">
       ООО "АльфаТек" предлагает запасные части для грузовых транспортных средств. Наша организация специализируется на надежных и своевременных поставках автозапчастей.
     </p>
 
-    <section class="contacts" aria-label="Контактная информация">
+<section class="contacts" aria-label="Контактная информация">
       <div><strong>Адрес:</strong> 196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</div>
       <div><strong>Email:</strong> <a href="mailto:alfatekgroup@mail.ru">alfatekgroup@mail.ru</a></div>
       <div><strong>Телефон:</strong> <a href="tel:+79819600330">8-981-960-03-30</a></div>
