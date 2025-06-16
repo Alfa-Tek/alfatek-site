@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ООО "АльфаТек" — Автозапчасти для грузового транспорта</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
+
+  /* Сброс и базовые стили */
+  body, html {
+    margin: 0; padding: 0; height: 100%;
+    background: #fff;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 600px;
+    padding: 20px 25px;
+    box-sizing: border-box;
+    text-align: center;
+    animation: fadeIn 1.2s ease forwards;
+    opacity: 0;
+  }
+
+  /* Логотип */
+  .logo {
+    margin: 0 auto 25px auto;
+    width: 160px;
+    height: 120px;
+    cursor: default;
+  }
+
+  /* Анимация линии логотипа */
+  .logo path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: drawLine 2s ease forwards;
+    stroke: #1A73E8;
+  }
+
+  /* Название */
+  h1 {
+    color: #1A73E8;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+    font-size: 2.4rem;
+    user-select: none;
+  }
+
+  /* Описание */
+  .description {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    color: #444;
+  }
+
+  /* Контакты */
+  .contacts {
+    font-size: 1rem;
+    color: #222;
+    line-height: 1.5;
+    margin-bottom: 40px;
+  }
+
+  .contacts div {
+    margin: 6px 0;
+  }
+
+  /* Слоган */
+  .slogan {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.8rem;
+    color: #1A73E8;
+    margin-top: 10px;
+    font-style: italic;
+    user-select: none;
+    position: relative;
+  }
+
+  /* Завитушки на букве "С" */
+  .slogan span.initial {
+    font-weight: 900;
+    font-size: 2.2rem;
+    display: inline-block;
+    position: relative;
+    color: #1A73E8;
+  }
+
+  .slogan span.initial::before {
+    content: '';
+    position: absolute;
+    left: -0.3em;
+    top: 0.1em;
+    width: 1em;
+    height: 1em;
+    border-top: 2px solid #1A73E8;
+    border-left: 2px solid #1A73E8;
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-45deg);
+    pointer-events: none;
+  }
+
+  /* Анимации */
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Адаптивность */
+  @media (max-width: 480px) {
+    .container {
+      padding: 20px 15px;
+      max-width: 100%;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+    .slogan {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="container" role="main">
+    <svg class="logo" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип АльфаТек" role="img" >
+      <path d="
+        M 0 100 
+        L 35 0 
+        L 70 100 
+        M 15 60 
+        L 55 60 
+        M 70 0 
+        L 70 100 
+        M 30 0 
+        L 110 0
+      " stroke="#1A73E8" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+
+    <h1>ООО "АльфаТек"</h1>
+    <p class="description">
+      ООО "АльфаТек" предлагает запасные части для грузовых транспортных средств. Наша организация специализируется на надежных и своевременных поставках автозапчастей.
+    </p>
+
+    <section class="contacts" aria-label="Контактная информация">
+      <div><strong>Адрес:</strong> 196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</div>
+      <div><strong>Email:</strong> <a href="mailto:alfatekgroup@mail.ru">alfatekgroup@mail.ru</a></div>
+      <div><strong>Телефон:</strong> <a href="tel:+79819600330">8-981-960-03-30</a></div>
+    </section>
+
+    <p class="slogan" aria-label="Слоган компании"><span class="initial">С</span> нами Ваш транспорт будет на ходу!</p>
+  </div>
+</body>
+</html>
