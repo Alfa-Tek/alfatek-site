@@ -17,10 +17,10 @@
   header {
     background: #1A73E8;
     color: white;
-    padding: 20px 40px;
+    padding: 20px 40px 16px;
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
+    align-items: center;
     box-shadow: 0 2px 8px rgb(26 115 232 / 0.3);
   }
 
@@ -28,13 +28,48 @@
     display: block;
     width: 80px;
     height: 60px;
+    flex-shrink: 0;
+  }
+
+  .brand-info {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
   }
 
   .logo-text {
     font-weight: 700;
     font-size: 24px;
-    margin-left: 16px;
     user-select: none;
+    line-height: 1.2;
+  }
+
+  .header-slogan {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5rem;
+    margin-top: 2px;
+    color: #a9d1ff;
+    user-select: none;
+    position: relative;
+  }
+  .header-slogan span:first-letter {
+    font-size: 2rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    color: #a9d1ff;
+  }
+  .header-slogan span:first-letter::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 85%;
+    width: 12px;
+    height: 14px;
+    border-bottom: 2.5px solid #a9d1ff;
+    border-right: 2.5px solid #a9d1ff;
+    border-radius: 50% 50% 50% 0;
+    transform: rotate(-40deg);
   }
 
   nav {
@@ -52,7 +87,7 @@
 
   nav a:hover,
   nav a:focus {
-    color: #a9d1ff;
+    color: #c7dbff;
   }
 
   main {
@@ -61,27 +96,57 @@
     padding: 0 20px;
   }
 
+  section {
+    padding: 48px 36px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
+  
+  #about {
+    background: linear-gradient(135deg, #e8f0fe 0%, #dbe9fd 100%);
+    box-shadow: 0 0 15px rgb(26 115 232 / 0.15);
+  }
+
+  #products {
+    background: #ffffff;
+    box-shadow: 0 0 10px rgb(26 115 232 / 0.1);
+  }
+
+  #contacts {
+    background: #f0f3f7;
+    box-shadow: 0 0 15px rgb(168 181 197 / 0.15);
+  }
+
+  h1, h2 {
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 16px;
+  }
+
   h1 {
     font-size: 2.6rem;
-    margin-bottom: 8px;
+    color: #1A73E8;
+  }
+
+  h2 {
+    font-size: 1.9rem;
     color: #1A73E8;
   }
 
   .description {
     font-size: 1.2rem;
-    margin-bottom: 32px;
     line-height: 1.5;
+    margin-bottom: 28px;
   }
 
   .slogan {
     font-family: 'Great Vibes', cursive;
     font-size: 2rem;
     color: #1A73E8;
-    margin-bottom: 56px;
+    margin-bottom: 0;
     position: relative;
   }
 
-  / Завитушки на букве "С" /
   .slogan span:first-letter {
     font-size: 3rem;
     font-weight: 700;
@@ -107,7 +172,7 @@
     grid-template-columns: auto 1fr;
     grid-row-gap: 20px;
     grid-column-gap: 20px;
-    max-width: 400px;
+    max-width: 450px;
   }
 
   .contacts dt {
@@ -121,16 +186,14 @@
   }
 
   footer {
-    background: #1A73E8;
-    color: white;
-    padding: 32px 40px;
+    padding: 16px 40px;
     text-align: center;
-    font-size: 14px;
   }
 
-  @media (max-width: 620px) {
+@media (max-width: 620px) {
     header {
       justify-content: center;
+      padding-bottom: 12px;
     }
     nav {
       margin-left: 0;
@@ -144,6 +207,12 @@
     }
     main {
       margin: 30px 16px;
+      padding: 0;
+    }
+    section {
+      padding: 36px 24px;
+      margin-bottom: 32px;
+      border-radius: 8px;
     }
   }
 </style>
@@ -170,7 +239,10 @@
         stroke-linecap="round"/>
     </svg>
   </div>
-  <div class="logo-text">ООО "АльфаТек"</div>
+  <div class="brand-info">
+    <div class="logo-text">ООО "АльфаТек"</div>
+    <div class="header-slogan" aria-label="Слоган компании"><span>С</span> нами Ваш транспорт будет на ходу!</div>
+  </div>
   <nav role="navigation">
     <a href="#about">О компании</a>
     <a href="#products">Продукция</a>
@@ -179,24 +251,23 @@
 </header>
 
 <main>
-  <section id="about" aria-label="Описание компании">
-    <h1>ООО "АльфаТек"</h1>
+  <section id="about" aria-label="О компании">
+    <h2>О компании</h2>
     <p class="description">
-      ООО "АльфаТек" предлагает запасные части для грузовых транспортных средств. Наша организация специализируется на надежных и своевременных поставках автозапчастей.
+      ООО "АльфаТек" — молодая, динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами. Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами. Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
     </p>
-
-<p class="slogan" aria-label="Слоган компании"><span>С</span> нами Ваш транспорт будет на ходу!</p>
+    <p class="slogan" aria-hidden="true"><span>С</span> нами Ваш транспорт будет на ходу!</p>
   </section>
 
-  <section id="products" aria-label="Информация о продукции">
-    <h2 style="color:#1A73E8; font-weight:700; font-size:1.8rem; margin-bottom:18px;">Наши запчасти</h2>
+  <section id="products" aria-label="Наши запчасти">
+    <h2>Наши запчасти</h2>
     <p>
       Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: двигатели, трансмиссии, подвески, тормозные системы и многое другое. Все запчасти проходят строгий контроль качества и имеют гарантию.
     </p>
   </section>
 
-  <section id="contacts" aria-label="Контактная информация" style="margin-top:60px;">
-    <h2 style="color:#1A73E8; font-weight:700; font-size:1.8rem; margin-bottom:18px;">Контакты</h2>
+  <section id="contacts" aria-label="Контактная информация">
+    <h2>Контакты</h2>
     <dl class="contacts">
       <dt>Адрес:</dt>
       <dd>196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</dd>
@@ -208,8 +279,6 @@
   </section>
 </main>
 
-<footer>
-  &copy; 2024 ООО "АльфаТек". Все права защищены.
-</footer>
+<footer aria-hidden="true"></footer>
 </body>
 </html>
