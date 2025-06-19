@@ -7,7 +7,6 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
 
-  / Сброс и базовые стили /
   body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -24,18 +23,15 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 20px 40px 16px;
-    box-shadow: 0 2px 8px rgb(26 115 232 / 0.3);
-    position: relative;
+    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
   }
 
-  / Логотип с анимацией /
   .logo {
     width: 80px;
     height: 60px;
     flex-shrink: 0;
   }
 
-  / Анимация штриховки SVG линии /
   @keyframes dash {
     to {
       stroke-dashoffset: 0;
@@ -47,7 +43,6 @@
     animation: dash 2.5s ease forwards;
   }
 
-  / Инфоблок с названием и слоганом /
   .brand-info {
     display: flex;
     flex-direction: column;
@@ -119,7 +114,7 @@
     box-sizing: border-box;
   }
 
-  / Фон и тени разных блоков /
+  / Фон и тени блоков /
   #about {
     background: linear-gradient(135deg, #e8f0fe 0%, #dbe9fd 100%);
     box-shadow: 0 0 15px rgba(26, 115, 232, 0.15);
@@ -137,21 +132,32 @@
     font-weight: 700;
     margin-top: 0;
     margin-bottom: 16px;
+    color: #1A73E8;
   }
   h1 {
     font-size: 2.6rem;
-
-color: #1A73E8;
   }
   h2 {
     font-size: 1.9rem;
-    color: #1A73E8;
   }
 
-  .description {
+  / Общее описание с выравниванием по ширине и равными отступами /
+  #about .description,
+  #products .description {
     font-size: 1.2rem;
     line-height: 1.5;
-    margin-bottom: 28px;
+
+margin-bottom: 28px;
+    text-align: justify;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  / Отступы в блоках по горизонтали /
+  #about, #products {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 
   / Галереи изображений /
@@ -161,12 +167,11 @@ color: #1A73E8;
     justify-content: center;
     flex-wrap: nowrap;
     overflow-x: auto;
-    scrollbar-width: none; / Firefox /
+    scrollbar-width: none;
   }
   .image-row::-webkit-scrollbar {
-    display: none; / Chrome, Safari /
+    display: none;
   }
-
   .image-row img {
     flex-shrink: 0;
     width: 260px;
@@ -178,7 +183,6 @@ color: #1A73E8;
     transform: translateY(10px);
     animation: fadeUp 0.9s forwards;
   }
-  / Плавное появление с задержкой для каждой картинки /
   .image-row img:nth-child(1) {
     animation-delay: 0.15s;
   }
@@ -188,7 +192,6 @@ color: #1A73E8;
   .image-row img:nth-child(3) {
     animation-delay: 0.45s;
   }
-
   @keyframes fadeUp {
     to {
       opacity: 1;
@@ -227,7 +230,6 @@ color: #1A73E8;
     user-select: none;
   }
 
-  / Мобильная адаптация /
   @media (max-width: 620px) {
     header {
       justify-content: center;
@@ -257,6 +259,10 @@ color: #1A73E8;
     }
     .image-row img {
       width: 200px;
+    }
+    #about, #products {
+      padding-left: 24px;
+      padding-right: 24px;
     }
   }
 </style>
@@ -298,7 +304,7 @@ color: #1A73E8;
   <section id="about" aria-label="О компании">
     <h2>О компании</h2>
     <p class="description">
-      ООО "АльфаТек" — молодая, динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами. Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами. Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
+      ООО "АльфаТек" - это молодая и динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами. Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами. Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
     </p>
     <div class="image-row" aria-hidden="true" role="presentation">
       <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic2.webp" alt="Грузовой автомобиль на дороге" loading="lazy" />
@@ -307,10 +313,9 @@ color: #1A73E8;
     </div>
   </section>
 
-  <section id="products" aria-label="Наши запчасти">
-
-<h2>Наши запчасти</h2>
-    <p>
+<section id="products" aria-label="Наши запчасти">
+    <h2>Наши запчасти</h2>
+    <p class="description">
       Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: трансмиссии, подвески, тормозные системы и многое другое. Все запчасти проходят строгий контроль качества и имеют гарантию.
     </p>
     <div class="image-row" aria-hidden="true" role="presentation">
