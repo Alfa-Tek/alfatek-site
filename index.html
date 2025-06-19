@@ -5,366 +5,378 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ООО "АльфаТек" — Запасные части для грузовых транспортных средств</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
 
-  :root {
-    --primary-color: #1A73E8;
-    --bg-about: #e8f0fe;
-    --bg-products: #ffffff;
-    --bg-contacts: #f0f3f7;
-    --header-height: 100px;
-    --max-text-width: 780px;
-  }
+:root {
+  --primary-color: #1A73E8;
+  --bg-about: #e8f0fe;
+  --bg-products: #ffffff;
+  --bg-contacts: #f0f3f7;
+  --header-height: 100px;
+  --max-text-width: 780px;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-  body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: #f5f8ff;
-    color: #222;
-    scroll-behavior: smooth;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f8ff;
+  color: #222;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-height);
-    background: var(--primary-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    padding: 20px 40px;
-    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-    z-index: 1000;
-    gap: 24px;
-    user-select: none;
-  }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+  z-index: 1000;
+  gap: 24px;
+  user-select: none;
+}
 
-  .logo {
-    width: 80px;
-    height: 60px;
-    flex-shrink: 0;
-  }
+.logo {
+  width: 80px;
+  height: 60px;
+  flex-shrink: 0;
+}
+.logo svg {
+  width: 80px;
+  height: 60px;
+  display: block;
+}
+.logo svg path {
+  stroke: var(--primary-color);
+  stroke-width: 5;
+  fill: none;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: dash 3s ease forwards;
+}
 
-  .logo svg path {
-    stroke-dasharray: 250;
-    stroke-dashoffset: 250;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-    stroke-width: 5;
-    stroke: var(--primary-color);
-    fill: none;
-    animation: dash 3s ease forwards;
-  }
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
 
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
-  .brand-info {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+.logo-text {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.1;
+  color: white;
+}
 
-  .logo-text {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.1;
-    color: white;
-  }
+.header-slogan {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.8rem;
+  color: #c4ddff;
+  position: relative;
+  margin-top: 6px;
+  white-space: nowrap;
+  user-select: none;
+}
 
-  .header-slogan {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.8rem;
-    color: #c4ddff;
-    position: relative;
-    margin-top: 6px;
-    white-space: nowrap;
-    user-select: none;
-  }
+.header-slogan span:first-letter {
+  font-size: 2.8rem;
+  font-weight: 700;
+  padding-right: 14px;
+  position: relative;
+  color: #c4ddff;
+  display: inline-block;
+}
 
-  .header-slogan span:first-letter {
-    font-size: 2.8rem;
-    font-weight: 700;
-    padding-right: 14px;
-    position: relative;
-    color: #c4ddff;
-    display: inline-block;
-  }
+.header-slogan span:first-letter::before {
+  content: "";
+  position: absolute;
+  left: -18px;
+  top: 85%;
+  width: 18px;
+  height: 20px;
+  border-bottom: 3px solid #c4ddff;
+  border-right: 3px solid #c4ddff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
 
-  .header-slogan span:first-letter::before {
-    content: "";
-    position: absolute;
-    left: -18px;
-    top: 85%;
-    width: 18px;
-    height: 20px;
-    border-bottom: 3px solid #c4ddff;
-    border-right: 3px solid #c4ddff;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-  }
+nav {
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  gap: 28px;
+}
 
-  nav {
-    display: flex;
-    gap: 28px;
-    font-weight: 600;
-    font-size: 16px;
-  }
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
-  nav a {
-    color: white;
-    text-decoration: none;
-    padding: 6px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
+nav a:hover,
+nav a:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #a9cfff;
+  outline-offset: 2px;
+  outline: 2px solid #a9cfff;
+}
 
-  nav a:hover,
-  nav a:focus {
-    background-color: rgba(255, 255, 255, 0.25);
-    color: #a9cfff;
-    outline-offset: 2px;
-    outline: 2px solid #a9cfff;
-  }
+main {
+  max-width: 1100px;
+  margin: calc(var(--header-height) + 40px) auto 60px;
+  padding: 0 20px;
+}
 
-  main {
-    max-width: 1100px;
-    margin: calc(var(--header-height) + 40px) auto 60px;
-    padding: 0 20px;
-  }
+section {
+  border-radius: 12px;
+  padding: 48px 36px;
+  margin-bottom: 44px;
+  scroll-margin-top: calc(var(--header-height) + 16px);
+}
 
-  section {
-    border-radius: 12px;
-    padding: 48px 36px;
-    margin-bottom: 44px;
-    scroll-margin-top: calc(var(--header-height) + 16px);
-  }
+#about {
+  background-color: var(--bg-about);
+  box-shadow: 0 0 18px rgba(26, 115, 232, 0.18);
+}
 
-  #about {
-    background-color: var(--bg-about);
-    box-shadow: 0 0 18px rgba(26, 115, 232, 0.18);
-  }
+#products {
+  background-color: var(--bg-products);
+  box-shadow: 0 0 14px rgba(26, 115, 232, 0.12);
+}
 
-  #products {
-    background-color: var(--bg-products);
-    box-shadow: 0 0 14px rgba(26, 115, 232, 0.12);
-  }
+#contacts {
+  background-color: var(--bg-contacts);
+  box-shadow: 0 0 18px rgba(168, 181, 197, 0.15);
+}
 
-  #contacts {
-    background-color: var(--bg-contacts);
-    box-shadow: 0 0 18px rgba(168, 181, 197, 0.15);
-  }
+h2 {
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin:0 0 20px 0;
+}
 
-  h2 {
-    font-weight: 700;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin:0 0 20px 0;
-  }
+.description {
+  max-width: var(--max-text-width);
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.22rem;
+  line-height: 1.55;
+  text-align: justify;
+  color: #202020;
+  margin-bottom: 36px;
+}
 
-  .description {
-    max-width: var(--max-text-width);
-    margin-left: auto;
+.image-row {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  justify-content: flex-start;
+}
 
-margin-right: auto;
-    font-size: 1.22rem;
-    line-height: 1.55;
-    text-align: justify;
-    color: #202020;
-    margin-bottom: 36px;
-  }
+.image-row::-webkit-scrollbar {
+  display: none;
+}
 
-  .image-row {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scrollbar-width: none;
-    justify-content: flex-start;
-  }
+.image-row img {
+  height: 110px;
+  flex-shrink: 0;
 
-  .image-row::-webkit-scrollbar {
-    display: none;
-  }
+border-radius: 10px;
+  object-fit: contain;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(26, 115, 232, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .image-row img {
-    height: 110px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    object-fit: cover;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(26, 115, 232, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
+.image-row img:hover,
+.image-row img:focus {
+  transform: scale(1.06);
+  box-shadow: 0 8px 16px rgba(26, 115, 232, 0.3);
+  outline: none;
+}
 
-  .image-row img:hover,
-  .image-row img:focus {
-    transform: scale(1.06);
-    box-shadow: 0 8px 16px rgba(26, 115, 232, 0.3);
-    outline: none;
-  }
+.contacts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 20px;
+  column-gap: 24px;
+  max-width: 480px;
+  font-weight: 500;
+  color: #2a2a2a;
+}
 
-  .contacts {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    row-gap: 20px;
-    column-gap: 24px;
-    max-width: 480px;
-    font-weight: 500;
-    color: #2a2a2a;
-  }
+.contacts dt {
+  font-weight: 700;
+  color: var(--primary-color);
+}
 
-  .contacts dt {
-    font-weight: 700;
-    color: var(--primary-color);
-  }
+.contacts dd {
+  margin: 0;
+  word-break: break-word;
+}
 
-  .contacts dd {
-    margin: 0;
-    word-break: break-word;
-  }
+.contacts a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
 
-  .contacts a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
+.contacts a:hover,
+.contacts a:focus {
+  text-decoration: underline;
+}
 
-  .contacts a:hover,
-  .contacts a:focus {
-    text-decoration: underline;
-  }
+footer {
+  padding: 16px 40px;
+  text-align: center;
+  color: transparent;
+  user-select: none;
+}
 
-  footer {
-    padding: 16px 40px;
-    text-align: center;
-    color: transparent;
-    user-select: none;
-  }
+/ Responsive /
 
-  @media (max-width: 768px) {
-    main {
-      padding: 0 12px;
-      margin-top: calc(var(--header-height) + 30px);
-    }
+@media (max-width: 768px) {
+  main {
+    padding: 0 12px;
+    margin-top: calc(var(--header-height) + 30px);
+  }
 
-    section {
-      padding: 32px 24px;
-    }
+  section {
+    padding: 32px 24px;
+  }
 
-    .image-row img {
-      height: 90px;
-    }
-  }
+  .image-row img {
+    height: 90px;
+  }
+}
 
-  @media (max-width: 480px) {
-    header {
-      flex-wrap: wrap;
-      height: auto;
-      padding: 16px 24px;
-      gap: 16px;
-      user-select: none;
-    }
+@media (max-width: 480px) {
+  header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 16px 24px;
+    gap: 16px;
+    user-select: none;
+  }
 
-    .logo-text {
-      font-size: 22px;
-    }
+  .logo-text {
+    font-size: 22px;
+  }
 
-    .header-slogan {
-      font-size: 1.5rem;
-    }
+  .header-slogan {
+    font-size: 1.5rem;
+  }
 
-    nav {
-      justify-content: center;
-      width: 100%;
-      gap: 18px;
-      font-size: 14px;
-      order: 3;
-    }
+  nav {
+    justify-content: center;
+    width: 100%;
+    gap: 18px;
+    font-size: 14px;
+    order: 3;
+  }
 
-    .brand-info {
-      flex-grow: 1;
-    }
+  .brand-info {
+    flex-grow: 1;
+  }
 
-    main {
-      margin-top: calc(var(--header-height) + 40px);
-      padding: 0 12px;
-    }
+  main {
+    margin-top: calc(var(--header-height) + 40px);
+    padding: 0 12px;
+  }
 
-    section {
-      padding: 28px 16px;
-      margin-bottom: 36px;
-    }
+  section {
+    padding: 28px 16px;
+    margin-bottom: 36px;
+  }
 
-    .image-row {
-      gap: 8px;
-    }
+  .image-row {
+    gap: 8px;
+  }
 
-    .image-row img {
-      height: 80px;
-      border-radius: 6px;
-    }
-  }
+  .image-row img {
+    height: 80px;
+    border-radius: 6px;
+  }
+}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo" role="img" aria-label="Логотип АльфаТек" tabindex="0">
-    <svg width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-      <path d="M0 100 L35 0 L70 100 M15 60 L55 60 M70 0 L70 100 M30 0 L110 0"
-        stroke="#ffffff" stroke-width="5" fill="none" stroke-linejoin="round" stroke-linecap="round"></path>
-    </svg>
-  </div>
-  <div class="brand-info">
-    <div class="logo-text" tabindex="0">ООО "АльфаТек"</div>
-    <div class="header-slogan" aria-label="Слоган компании" tabindex="0"><span>С</span> нами Ваш транспорт будет на ходу!</div>
-  </div>
-  <nav role="navigation" aria-label="Главное меню">
-    <a href="#about" tabindex="0">О компании</a>
-    <a href="#products" tabindex="0">Продукция</a>
-    <a href="#contacts" tabindex="0">Контакты</a>
-  </nav>
+  <div class="logo" role="img" aria-label="Логотип АльфаТек" tabindex="0">
+    <svg width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" >
+      <path d="
+        M 0 100 
+        L 35 0 
+        L 70 100 
+        M 15 60 
+        L 55 60 
+        M 70 0 
+        L 70 100 
+        M 30 0 
+        L 110 0
+      " stroke="#1A73E8" />
+    </svg>
+  </div>
+  <div class="brand-info">
+    <div class="logo-text" tabindex="0">ООО "АльфаТек"</div>
+    <div class="header-slogan" aria-label="Слоган компании" tabindex="0"><span>С</span> нами Ваш транспорт будет на ходу!</div>
+  </div>
+  <nav role="navigation" aria-label="Главное меню">
+    <a href="#about" tabindex="0">О компании</a>
+    <a href="#products" tabindex="0">Продукция</a>
+    <a href="#contacts" tabindex="0">Контакты</a>
+  </nav>
 </header>
 <main>
-  <section id="about" tabindex="0" aria-label="О компании" role="region">
-    <h2>О компании</h2>
-    <p class="description">
-      ООО "АльфаТек" - это молодая и динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами.
-      Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами.
-      Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
-    </p>
-    <div class="image-row" aria-hidden="true" role="presentation">
-      <img src="https://cdn.pixabay.com/photo/2017/02/01/22/02/truck-2021122640.jpg" alt="Грузовик на дороге" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2018/06/04/22/44/engine-3454296640.jpg" alt="Автозапчасти" loading="lazy" />
+  <section id="about" tabindex="0" aria-label="О компании" role="region">
+    <h2>О компании</h2>
+    <p class="description">
+      ООО "АльфаТек" - это молодая и динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами.
+      Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами.
+      Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
+    </p>
+    <div class="image-row" aria-hidden="true" role="presentation" tabindex="-1">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAUCAYAAAC4qGpNAAAAV0lEQVQ4T2NkoBAwUqifgXkCiwAwEcQ9UP20NmBR4CcRZo+UyAxkM7/KFy/YKCQRNFM8WAZAEfByG9vu4D2HopeIqCaDAD6kSttLcfoHccHNNgtHEiIAxdNAr6ecF2MhR8AJEhESywscuRAAAAAElFTkSuQmCC" alt="Грузовик" title="Грузовик" loading="lazy" />
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAXBAMAAACpHgwpAAAAD1BMVEUAAAD///8AAABUrhDAAAAAXRSTlMAQObYZgAAAGRJREFUGNNjYKACURYDAQxiEUhYRUWhgKUE6TABpAZzNgCKpgxGUaAw3wAaiTMGAGvRTAJDJpM4KiBoEWMNKmgw1AoJ8CiARWxgATKn//caPYybAAAAAElFTkSuQmCC" alt="Механизм" title="Механизм" loading="lazy" />
 
-<img src="https://cdn.pixabay.com/photo/2019/12/13/13/04/container-4697200640.jpg" alt="Грузовые контейнеры" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2018/08/20/22/07/tractor-trailer-3613546640.jpg" alt="Тягач с прицепом" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2017/11/10/05/46/factory-2936597640.jpg" alt="Автомобильный завод" loading="lazy" />
-    </div>
-  </section>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAUCAYAAAC4qGpNAAAAV0lEQVQ4T2NkoBAwUqifgXkCiACwEcQ9UP20NmBR4CcRZo+UyAxkM7/KFy/YKCQRNFM8WAZAEfByG9vu4D2HopeIqCaDAD6kSttLcfoHccHNNgtHEiIAxdNAr6ecF2MhR8AJEhESywscuRAAAAAElFTkSuQmCC" alt="Колесо" title="Колесо" loading="lazy" />
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAUCAYAAAC4qGpNAAABHklEQVQ4T2NkoBAw0nDgBZphno3vz//A/VRjoIJ8FpiXgeRlij+tQhVOAMLSEB0kMhAkhqw7ZD0HxwCEvsE14DxX8DID1uHrAqKYMWGkOiP/JaZmAEqQ5ewl8Ac9LHEA9HGV68r5EJCYoSiM7Fg5wRsN4GuQkIEfH0tzPkZS4ugABYC/BkabguwBRDmA/o7OBr+DLACZfdHMoLoGGNTD6GZGiKRKwiq/kZQkWWGVAcGMkwQh0fgffAgkDlAFNZhyKQkDh+gidSfY5R4yqFWEGEn+8DrgMoAfRgkBfWiDvAYm3ICiS9iUI9t4/TJRlA9EGcgAAMCCNKQArXMcXUAAAAASUVORK5CYII=" alt="Ключ" title="Ключ" loading="lazy" />
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAWCAYAAAB4S32LAAAAVUlEQVQ4T2NkoBAwUqifgXkDiCAcYYkQhAIVRecCrYpmYfKUQXZFgeB+QKPSCHKfExgMRGktbWdQLAiII62UtW+HlAtBAZJyDQ0MYB5hDE+d6FlGvUNCNIMvATJQUWQwFxjBRQvGmKCASUTtRQAOc6oHm1fmt7AAAAAElFTkSuQmCC" alt="Запчасть" title="Запчасть" loading="lazy" />
+    </div>
+  </section>
 
-  <section id="products" tabindex="0" aria-label="Наши запчасти" role="region">
-    <h2>Наши запчасти</h2>
-    <p class="description">
-      Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: трансмиссии, подвески, тормозные системы и многое другое.
-      Все запчасти проходят строгий контроль качества и имеют гарантию.
-    </p>
-    <div class="image-row" aria-hidden="true" role="presentation">
-      <img src="https://cdn.pixabay.com/photo/2016/11/21/12/49/engine-1845674640.jpg" alt="Мотор грузовика" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2017/07/30/06/53/brake-2550938640.jpg" alt="Тормозные диски" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2019/05/16/22/25/sprocket-4200206640.jpg" alt="Зубья шестерёнки" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2017/10/23/15/34/wheel-2878357640.jpg" alt="Колесо грузовика" loading="lazy" />
-      <img src="https://cdn.pixabay.com/photo/2017/06/05/20/40/tire-2379679640.jpg" alt="Зимняя шина" loading="lazy" />
-    </div>
+  <section id="products" tabindex="0" aria-label="Наши запчасти" role="region">
+    <h2>Наши запчасти</h2>
+    <p class="description">
+      Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: трансмиссии, подвески, тормозные системы и многое другое.
+      Все запчасти проходят строгий контроль качества и имеют гарантию.
+    </p>
+    <div class="image-row" aria-hidden="true" role="presentation" tabindex="-1">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAXCAYAAAC6Ndp9AAAARUlEQVQ4T2NkoBAwUqifgXkCiwAwEcQ9UP2+A5KYQGUAZaMTAgTxoz4wDPyDeXMQwMSJsALSa9Txg0AAqTaNQpVhoYoGiqmVqcgdkG11EubHApNY9AAen+46d2sg4IAAAAASUVORK5CYII=" alt="Тормозная система" title="Тормозная система" loading="lazy" />
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAXCAYAAAC0P6wAAAARUlEQVQ4T2NkoBAwUqifgXkCiwAwEcQ9UP2+A5KYQGUAZaMTAgTxoz4wDPyDeXMQwMSJsALSa9Txg0AAqTaNQpVhoYoGiqmVqcgdkG11EubHApNY9AAen+46d2sg4IAAAAASUVORK5CYII=" alt="Подвеска" title="Подвеска" loading="lazy" />
+</div>
   </section>
 
   <section id="contacts" tabindex="0" aria-label="Контактная информация" role="region">
