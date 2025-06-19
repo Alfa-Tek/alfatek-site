@@ -3,174 +3,213 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>ООО "АльфаТек" -- Автозапчасти для грузового транспорта</title>
+<title>ООО "АльфаТек" — Запасные части для грузовых транспортных средств</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
 
-  / Сброс и базовые стили /
-  body, html {
+  body {
     margin: 0;
-    padding: 0;
-    height: 100%;
-    background: #fff;
     font-family: 'Roboto', sans-serif;
-    color: #333;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    user-select: none;
+    background: #f5f8ff;
+    color: #222;
+  }
+
+  header {
+    background: #1A73E8;
+    color: white;
+    padding: 20px 40px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    box-sizing: border-box;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 8px rgb(26 115 232 / 0.3);
   }
 
-  .container {
-    max-width: 700px;
-    width: 90%;
-    padding: 40px 40px 50px 40px;
-    box-sizing: border-box;
-    text-align: center;
-  }
-
-  .logo {
-    margin: 0 auto 35px;
-    width: 160px;
-    height: 120px;
-    cursor: default;
+  .logo svg {
     display: block;
+    width: 80px;
+    height: 60px;
   }
 
-  .logo path {
-    fill: none;
-    stroke: #1A73E8;
-    stroke-width: 5;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-    stroke-dasharray: 400;
-    stroke-dashoffset: 400;
-    animation: drawLine 2s ease forwards;
+  .logo-text {
+    font-weight: 700;
+    font-size: 24px;
+    margin-left: 16px;
+    user-select: none;
+  }
+
+  nav {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 24px;
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover,
+  nav a:focus {
+    color: #a9d1ff;
+  }
+
+  main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
   }
 
   h1 {
-    font-weight: 700;
-    font-size: 2.8rem;
-    margin: 0 0 15px 0;
+    font-size: 2.6rem;
+    margin-bottom: 8px;
     color: #1A73E8;
   }
 
   .description {
     font-size: 1.2rem;
-    line-height: 1.6;
-    color: #444;
-    margin-bottom: 30px;
-  }
-
-  .contacts {
-    font-size: 1.05rem;
-    color: #222;
+    margin-bottom: 32px;
     line-height: 1.5;
-    margin-bottom: 40px;
-  }
-  .contacts div {
-    margin: 8px 0;
-  }
-  .contacts a {
-    color: #1A73E8;
-    text-decoration: none;
-  }
-  .contacts a:hover,
-  .contacts a:focus {
-    text-decoration: underline;
   }
 
   .slogan {
     font-family: 'Great Vibes', cursive;
     font-size: 2rem;
     color: #1A73E8;
-    font-style: italic;
-    margin-top: 15px;
+    margin-bottom: 56px;
     position: relative;
-    user-select: none;
   }
 
-  .slogan span.initial {
-    font-weight: 900;
-    font-size: 2.6rem;
-    color: #1A73E8;
+  / Завитушки на букве "С" /
+  .slogan span:first-letter {
+    font-size: 3rem;
+    font-weight: 700;
     position: relative;
     display: inline-block;
+    color: #1A73E8;
   }
-
-  .slogan span.initial::before {
+  .slogan span:first-letter::before {
     content: '';
     position: absolute;
-    left: -0.3em;
-    top: 0.1em;
-    width: 1em;
-    height: 1em;
-    border-top: 2px solid #1A73E8;
-    border-left: 2px solid #1A73E8;
-    border-radius: 50% 50% 0 0;
+    left: -12px;
+    top: 80%;
+    width: 16px;
+    height: 18px;
+    border-bottom: 3px solid #1A73E8;
+    border-right: 3px solid #1A73E8;
+    border-radius: 50% 50% 50% 0;
     transform: rotate(-45deg);
-    pointer-events: none;
   }
 
-  @keyframes drawLine {
-    to {
-      stroke-dashoffset: 0;
-    }
+  .contacts {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-row-gap: 20px;
+    grid-column-gap: 20px;
+    max-width: 400px;
   }
 
-  @media (max-width: 480px) {
-    .container {
-      width: 95%;
-      padding: 30px 20px 40px 20px;
+  .contacts dt {
+    font-weight: 700;
+    color: #1A73E8;
+  }
+
+  .contacts dd {
+    margin: 0;
+    font-weight: 500;
+  }
+
+  footer {
+    background: #1A73E8;
+    color: white;
+    padding: 32px 40px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  @media (max-width: 620px) {
+    header {
+      justify-content: center;
     }
-    h1 {
-      font-size: 2.3rem;
+    nav {
+      margin-left: 0;
+      margin-top: 12px;
+      width: 100%;
+      text-align: center;
     }
-    .description {
-      font-size: 1.1rem;
+    nav a {
+      margin: 0 12px;
+      font-size: 14px;
     }
-    .slogan {
-      font-size: 1.6rem;
-    }
-    .slogan span.initial {
-      font-size: 2rem;
+    main {
+      margin: 30px 16px;
     }
   }
 </style>
 </head>
 <body>
-  <main class="container" role="main">
-    <svg class="logo" viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg" aria-label="Логотип АльфаТек" role="img">
+<header>
+  <div class="logo" aria-label="Логотип АльфаТек">
+    <svg width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" >
       <path d="
-        M 0 100 
+        M 0 50 
         L 35 0 
-        L 70 100 
-        M 15 60 
-        L 55 60 
+        L 70 50 
+        M 15 30 
+        L 55 30 
         M 70 0 
-        L 70 100 
+        L 70 50 
         M 30 0 
         L 110 0
-      "/>
+      " 
+        stroke="#1A73E8" 
+        stroke-width="3.5" 
+        fill="none" 
+        stroke-linejoin="round" 
+        stroke-linecap="round"/>
     </svg>
+  </div>
+  <div class="logo-text">ООО "АльфаТек"</div>
+  <nav role="navigation">
+    <a href="#about">О компании</a>
+    <a href="#products">Продукция</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+</header>
 
+<main>
+  <section id="about" aria-label="Описание компании">
     <h1>ООО "АльфаТек"</h1>
     <p class="description">
       ООО "АльфаТек" предлагает запасные части для грузовых транспортных средств. Наша организация специализируется на надежных и своевременных поставках автозапчастей.
     </p>
 
-    <section class="contacts" aria-label="Контактная информация">
-      <div><strong>Адрес:</strong> 196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</div>
-      <div><strong>Email:</strong> <a href="mailto:alfatekgroup@mail.ru">alfatekgroup@mail.ru</a></div>
+<p class="slogan" aria-label="Слоган компании"><span>С</span> нами Ваш транспорт будет на ходу!</p>
+  </section>
 
-<div><strong>Телефон:</strong> <a href="tel:+79819600330">8-981-960-03-30</a></div>
-    </section>
+  <section id="products" aria-label="Информация о продукции">
+    <h2 style="color:#1A73E8; font-weight:700; font-size:1.8rem; margin-bottom:18px;">Наши запчасти</h2>
+    <p>
+      Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: двигатели, трансмиссии, подвески, тормозные системы и многое другое. Все запчасти проходят строгий контроль качества и имеют гарантию.
+    </p>
+  </section>
 
-    <p class="slogan" aria-label="Слоган компании"><span class="initial">С</span> нами Ваш транспорт будет на ходу!</p>
-  </main>
+  <section id="contacts" aria-label="Контактная информация" style="margin-top:60px;">
+    <h2 style="color:#1A73E8; font-weight:700; font-size:1.8rem; margin-bottom:18px;">Контакты</h2>
+    <dl class="contacts">
+      <dt>Адрес:</dt>
+      <dd>196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</dd>
+      <dt>Email:</dt>
+      <dd><a href="mailto:alfatekgroup@mail.ru" style="color:#1A73E8; text-decoration:none;">alfatekgroup@mail.ru</a></dd>
+      <dt>Телефон:</dt>
+      <dd><a href="tel:+79819600330" style="color:#1A73E8; text-decoration:none;">8-981-960-03-30</a></dd>
+    </dl>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 ООО "АльфаТек". Все права защищены.
+</footer>
 </body>
 </html>
