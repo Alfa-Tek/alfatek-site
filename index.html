@@ -5,374 +5,340 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>ООО "АльфаТек" — Запасные части для грузовых транспортных средств</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@400;700&display=swap');
 
-  :root {
-    --primary-color: #1A73E8;
-    --light-bg-about: linear-gradient(135deg, #e8f0fe 0%, #dbe9fd 100%);
-    --light-bg-products: #fff;
-    --light-bg-contacts: #f0f3f7;
-    --max-text-width: 780px;
-    --header-height: 100px; /* уточним высоту хедера для scroll-margin */
-  }
+* {
+  box-sizing: border-box;
+}
 
-  * {
-    box-sizing: border-box;
-  }
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f5f8ff;
+  color: #222;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background: #f5f8ff;
-    color: #222;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    scroll-behavior: smooth;
-  }
+header {
+  background: #1A73E8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  gap: 20px;
+  flex-wrap: nowrap;
+  box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
 
-  header {
-    background: var(--primary-color);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    padding: 20px 40px;
-    gap: 24px;
-    flex-wrap: nowrap;
-    box-shadow: 0 2px 8px rgba(26, 115, 232, 0.3);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 100;
-    height: var(--header-height);
-  }
+.logo {
+  width: 80px;
+  height: 60px;
+  flex-shrink: 0;
+}
 
-  .logo {
-    width: 80px;
-    height: 60px;
-    flex-shrink: 0;
-    position: relative;
-  }
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.logo svg path {
+  stroke-dasharray: 250;
+  stroke-dashoffset: 250;
+  animation: dash 2.5s ease forwards;
+}
 
-  /* Анимация штриховки логотипа */
-  @keyframes dash {
-    to {
-      stroke-dashoffset: 0;
-    }
-  }
-  .logo svg path {
-    stroke-dasharray: 250;
-    stroke-dashoffset: 250;
-    animation: dash 4s ease forwards;
-  }
+.brand-info {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+.logo-text {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+}
 
-  .brand-info {
-    display: flex;
-    flex-direction: column;
-    user-select: none;
-    flex-grow: 1;
-  }
-  .logo-text {
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 1.2;
-    letter-spacing: 0.02em;
-  }
+.header-slogan {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.7rem;
+  color: #c4ddff;
+  margin-top: 2px;
+  position: relative;
+  user-select: none;
+  white-space: nowrap;
+}
+.header-slogan span:first-letter {
+  font-size: 2.4rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  color: #c4ddff;
+  padding-right: 14px;
+}
+.header-slogan span:first-letter::before {
+  content: '';
+  position: absolute;
+  left: -16px;
+  top: 85%;
+  width: 16px;
+  height: 18px;
+  border-bottom: 3px solid #c4ddff;
+  border-right: 3px solid #c4ddff;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+}
 
-  .header-slogan {
-    font-family: 'Great Vibes', cursive;
-    font-size: 1.9rem;
-    color: #c4ddff;
-    margin-top: 4px;
-    position: relative;
-    user-select: none;
-    white-space: nowrap;
-  }
-  /* Завитушка на букве "С" */
-  .header-slogan span:first-letter {
-    font-size: 2.8rem;
-    font-weight: 700;
-    position: relative;
-    display: inline-block;
-    color: #c4ddff;
-    padding-right: 14px;
-  }
-  .header-slogan span:first-letter::before {
-    content: '';
-    position: absolute;
-    left: -18px;
-    top: 85%;
-    width: 18px;
-    height: 20px;
-    border-bottom: 3px solid #c4ddff;
-    border-right: 3px solid #c4ddff;
-    border-radius: 50% 50% 50% 0;
-    transform: rotate(-45deg);
-  }
+nav {
+  margin-left: auto;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  gap: 26px;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+nav a:hover,
+nav a:focus {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: #a9cfff;
+}
 
-  nav {
-    font-weight: 600;
-    font-size: 16px;
-    display: flex;
-    gap: 28px;
-  }
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  nav a:hover,
-  nav a:focus {
-    background-color: rgba(255, 255, 255, 0.25);
-    color: #a9cfff;
-    outline-offset: 2px;
-    outline: 2px solid #a9cfff;
-  }
+main {
+  max-width: 1100px;
+  margin: 40px auto 60px;
+  padding: 0 20px;
+}
 
-  main {
-    max-width: 1100px;
-    margin: calc(var(--header-height) + 40px) auto 60px;
-    padding: 0 20px;
-  }
+section {
+  border-radius: 12px;
+  margin-bottom: 44px;
+  padding: 48px 36px;
+}
 
-  section {
-    border-radius: 12px;
-    margin-bottom: 44px;
-    padding: 48px 36px;
+#about {
+  background: linear-gradient(135deg, #e8f0fe 0%, #dbe9fd 100%);
+  box-shadow: 0 0 15px rgba(26, 115, 232, 0.15);
+}
+#products {
+  background: #fff;
+  box-shadow: 0 0 10px rgba(26, 115, 232, 0.1);
+}
+#contacts {
+  background: #f0f3f7;
+  box-shadow: 0 0 15px rgba(168, 181, 197, 0.15);
+}
 
-scroll-margin-top: calc(var(--header-height) + 16px);
-  }
+h1, h2 {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 16px;
+  color: #1A73E8;
+}
+h1 {
+  font-size: 2.6rem;
+}
+h2 {
+  font-size: 1.9rem;
+}
 
-  #about {
-    background: var(--light-bg-about);
-    box-shadow: 0 0 18px rgba(26, 115, 232, 0.18);
-  }
-  #products {
-    background: var(--light-bg-products);
-    box-shadow: 0 0 14px rgba(26, 115, 232, 0.12);
-  }
-  #contacts {
-    background: var(--light-bg-contacts);
-    box-shadow: 0 0 18px rgba(168, 181, 197, 0.15);
-  }
+#about .description,
+#products .description {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  text-align: justify;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  h1, h2 {
-    font-weight: 700;
-    margin-top: 0;
-    margin-bottom: 18px;
-    color: var(--primary-color);
-  }
-  h1 {
-    font-size: 2.8rem;
-  }
-  h2 {
-    font-size: 2rem;
-  }
+#about, #products {
+  padding-left: 40px;
+  padding-right: 40px;
+}
 
-  / Текстовое описание /
-  #about .description,
-  #products .description {
-    font-size: 1.22rem;
-    line-height: 1.55;
-    margin-bottom: 36px;
-    text-align: justify;
-    max-width: var(--max-text-width);
-    margin-left: auto;
-    margin-right: auto;
-    color: #202020;
-  }
+.image-row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.image-row::-webkit-scrollbar {
+  display: none;
+}
+.image-row img {
+  flex-shrink: 0;
+  width: 260px;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 6px 14px rgba(26, 115, 232, 0.2);
+  object-fit: cover;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.9s forwards;
+}
+.image-row img:nth-child(1) {
+  animation-delay: 0.15s;
+}
+.image-row img:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.image-row img:nth-child(3) {
+  animation-delay: 0.45s;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  / Галереи маленьких изображений - полосы по всей ширине /
-  .image-row {
-    display: flex;
-    gap: 12px;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    scrollbar-width: none;
-    max-width: 100%;
-    justify-content: space-between;
-  }
-  .image-row::-webkit-scrollbar {
-    display: none;
-  }
-  / Все картинки 120px высоты без превышения 3 строчек по высоте /
-  .image-row img {
-    height: 120px;
-    width: auto;
-    flex-shrink: 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(26, 115, 232, 0.18);
-    object-fit: cover;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  .image-row img:hover,
-  .image-row img:focus {
-    transform: scale(1.08);
-    box-shadow: 0 8px 16px rgba(26, 115, 232, 0.3);
-    outline: none;
-  }
+.contacts {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  row-gap: 20px;
+  column-gap: 20px;
+  max-width: 460px;
+  font-weight: 500;
+}
 
-  .contacts {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    row-gap: 20px;
-    column-gap: 24px;
-    max-width: 480px;
-    font-weight: 500;
-    color: #2a2a2a;
-  }
-  .contacts dt {
-    font-weight: 700;
-    color: var(--primary-color);
-    user-select: none;
-  }
-  .contacts dd {
-    margin: 0;
-    word-break: break-word;
-  }
-  .contacts a {
-    color: var(--primary-color);
-    text-decoration: none;
-  }
-  .contacts a:hover,
-  .contacts a:focus {
-    text-decoration: underline;
-  }
+.contacts dt {
+  font-weight: 700;
+  color: #1A73E8;
+}
+.contacts dd {
+  margin: 0;
+}
+.contacts a {
+  color: #1A73E8;
+  text-decoration: none;
+}
+.contacts a:hover,
+.contacts a:focus {
+  text-decoration: underline;
+}
 
-  footer {
-    padding: 16px 40px;
-    text-align: center;
-    color: transparent;
-    user-select: none;
-  }
+footer {
+  padding: 16px 40px;
+  text-align: center;
+  color: transparent;
+  user-select: none;
+}
 
-  @media (max-width: 768px) {
-    main {
-      padding: 0 12px;
-      margin-top: calc(var(--header-height) + 30px);
-    }
-    section {
-      padding: 32px 24px;
-    }
-    .image-row {
-      gap: 10px;
-    }
-    .image-row img {
-      height: 110px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    header {
-      flex-wrap: wrap;
-      height: auto;
-      padding: 16px 24px;
-      gap: 16px;
-    }
-    .logo-text {
-      font-size: 22px;
-    }
-    .header-slogan {
-      font-size: 1.5rem;
-    }
-    nav {
-      justify-content: center;
-      width: 100%;
-      gap: 18px;
-      font-size: 14px;
-      order: 3;
-    }
-    .brand-info {
-      flex-grow: 1;
-    }
-    main {
-      margin-top: calc(var(--header-height) + 40px);
-      padding: 0 12px;
-    }
-    section {
-      padding: 28px 16px;
-      margin-bottom: 36px;
-    }
-    .image-row img {
-      height: 90px;
-      border-radius: 6px;
-    }
-  }
+@media (max-width: 620px) {
+  header {
+    flex-wrap: wrap;
+    padding: 16px 24px;
+    justify-content: center;
+  }
+  nav {
+    margin-left: 0;
+    margin-top: 12px;
+    width: 100%;
+    justify-content: center;
+    gap: 16px;
+    font-size: 14px;
+  }
+  main {
+    margin: 30px 16px 60px;
+    padding: 0;
+  }
+  section {
+    padding: 36px 24px;
+    margin-bottom: 32px;
+    border-radius: 8px;
+  }
+  .image-row {
+    gap: 16px;
+  }
+  .image-row img {
+    width: 200px;
+  }
+  #about, #products {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo" aria-label="Логотип АльфаТек" role="img" tabindex="0">
-    <svg width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" >
-      <path d="
-        M 0 100 
-        L 35 0 
-        L 70 100 
-        M 15 60 
-        L 55 60 
-        M 70 0 
-        L 70 100 
-        M 30 0 
-        L 110 0
-      "
-        stroke="#1A73E8" 
-        stroke-width="5" 
-        fill="none" 
-        stroke-linejoin="round" 
-        stroke-linecap="round"/>
-    </svg>
-  </div>
-  <div class="brand-info">
-    <div class="logo-text" tabindex="0">ООО "АльфаТек"</div>
-    <div class="header-slogan" aria-label="Слоган компании" tabindex="0"><span>С</span> нами Ваш транспорт будет на ходу!</div>
-  </div>
-  <nav role="navigation" aria-label="Главное меню">
-    <a href="#about">О компании</a>
-    <a href="#products">Продукция</a>
-    <a href="#contacts">Контакты</a>
-
-</nav>
+  <div class="logo" aria-label="Логотип АльфаТек" role="img">
+    <svg width="80" height="60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" >
+      <path d="
+        M 0 50 
+        L 35 0 
+        L 70 50 
+        M 15 30 
+        L 55 30 
+        M 70 0 
+        L 70 50 
+        M 30 0 
+        L 110 0
+      "
+        stroke="#1A73E8" 
+        stroke-width="3.5" 
+        fill="none" 
+        stroke-linejoin="round" 
+        stroke-linecap="round"/>
+    </svg>
+  </div>
+  <div class="brand-info">
+    <div class="logo-text">ООО "АльфаТек"</div>
+    <div class="header-slogan" aria-label="Слоган компании"><span>С</span> нами Ваш транспорт будет на ходу!</div>
+  </div>
+  <nav role="navigation" aria-label="Главное меню">
+    <a href="#about">О компании</a>
+    <a href="#products">Продукция</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
 </header>
 <main>
-  <section id="about" tabindex="0" aria-label="О компании">
-    <h2>О компании</h2>
-    <p class="description">
-      ООО "АльфаТек" - это молодая и динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами. Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами. Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
-    </p>
-    <div class="image-row" aria-hidden="true" role="presentation">
-      <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=400&q=80" alt="Грузовой автомобиль на дороге" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=400&q=80" alt="Автозапчасти в коробках на складе" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1563729784470-54d5091fb14a?auto=format&fit=crop&w=400&q=80" alt="Современный грузовой транспорт" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1475176076035-fab05194495a?auto=format&fit=crop&w=400&q=80" alt="Механик ремонтирует грузовик" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1531771686036-48a1d81e5989?auto=format&fit=crop&w=400&q=80" alt="Запчасти и инструменты" loading="lazy" />
-    </div>
-  </section>
-  <section id="products" tabindex="0" aria-label="Наши запчасти">
-    <h2>Наши запчасти</h2>
-    <p class="description">
-      Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: трансмиссии, подвески, тормозные системы и многое другое. Все запчасти проходят строгий контроль качества и имеют гарантию.
-    </p>
-    <div class="image-row" aria-hidden="true" role="presentation">
-      <img src="https://images.unsplash.com/photo-1590080877777-d6dd63f3b8cf?auto=format&fit=crop&w=400&q=80" alt="Тормозные диски и колодки" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1579027985877-c9aebb918329?auto=format&fit=crop&w=400&q=80" alt="Подвеска грузового автомобиля" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1587472006104-6352bae635f1?auto=format&fit=crop&w=400&q=80" alt="Запчасти коробки передач" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1587202372775-6b13a484fcf7?auto=format&fit=crop&w=400&q=80" alt="Кузов грузовика" loading="lazy" />
-      <img src="https://images.unsplash.com/photo-1588358311956-6553c356d7b7?auto=format&fit=crop&w=400&q=80" alt="Шины для грузовика" loading="lazy" />
-    </div>
-  </section>
-  <section id="contacts" tabindex="0" aria-label="Контактная информация">
-    <h2>Контакты</h2>
-    <dl class="contacts">
-      <dt>Адрес:</dt>
-      <dd>196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</dd>
-      <dt>Email:</dt>
-      <dd><a href="mailto:alfatekgroup@mail.ru">alfatekgroup@mail.ru</a></dd>
-      <dt>Телефон:</dt>
-      <dd><a href="tel:+79819600330">8-981-960-03-30</a></dd>
-    </dl>
-  </section>
+  <section id="about" aria-label="О компании">
+    <h2>О компании</h2>
+    <p class="description">
+      ООО "АльфаТек" - это молодая и динамично развивающаяся организация, основанная опытными и высококвалифицированными специалистами. Наша деятельность построена на ценностях непрерывного улучшения, надежности и ответственности перед клиентами. Мы специализируемся на поставках высококачественных запасных частей для грузовых транспортных средств, обеспечивая своевременность и стабильность.
+    </p>
+    <div class="image-row" aria-hidden="true" role="presentation">
+      <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic2.webp" alt="Грузовой автомобиль на дороге" loading="lazy">
+      <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic3.webp" alt="Автозапчасти в коробках на складе" loading="lazy">
+      <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic5.webp" alt="Современный грузовой транспорт" loading="lazy">
+    </div>
+  </section>
+  <section id="products" aria-label="Наши запчасти">
+    <h2>Наши запчасти</h2>
+    <p class="description">
+      Мы предлагаем широкий ассортимент автозапчастей для грузовых автомобилей: трансмиссии, подвески, тормозные системы и многое другое. Все запчасти проходят строгий контроль качества и имеют гарантию.
+    </p>
+    <div class="image-row" aria-hidden="true" role="presentation">
+      <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic85.webp" alt="Тормозные диски и колодки" loading="lazy">
+      <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic67.webp" alt="Подвеска грузового автомобиля" loading="lazy">
+      <img src="https://cdn.jsdelivr.net/gh/hustcc/cdn@1.5/img/pic33.webp" alt="Запчасти коробки передач" loading="lazy">
+    </div>
+  </section>
+  <section id="contacts" aria-label="Контактная информация">
+    <h2>Контакты</h2>
+    <dl class="contacts">
+      <dt>Адрес:</dt>
+      <dd>196105, Санкт-Петербург, Московская застава, Московский проспект, 143 литера А</dd>
+      <dt>Email:</dt>
+      <dd><a href="mailto:alfatekgroup@mail.ru">alfatekgroup@mail.ru</a></dd>
+      <dt>Телефон:</dt>
+      <dd><a href="tel:+79819600330">8-981-960-03-30</a></dd>
+    </dl>
+  </section>
 </main>
 <footer aria-hidden="true" aria-label="Пустой футер"></footer>
 </body>
